@@ -65,6 +65,6 @@
 	</form>
 
 	<div class="max-w-md mx-auto border-none mt-5">
-		<Badge {name} {additiveManufacturing} {coffee} {motorcycle} />
+		<Badge {name} {additiveManufacturing} {coffee} {pencil} {motorcycle} />
 	</div>
 </div>
