@@ -20,9 +20,52 @@
 	var anvil = false;
 	var saw = false;
 	var code = false;
-	var console = false;
+	var terminal = false;
 	var printer = false;
 	var lightning = false;
+
+	let badge: HTMLElement;
+
+	// import svg-text-to-path package
+	// @ts-ignore
+	import Session from 'svg-text-to-path/entries/browser-opentypejs.js';
+
+	// super convuluted way to download the svg
+	function download() {
+		// first - create a new temporary copy of svg element
+		let currentBadge = badge.innerHTML;
+		let tempBadge = document.createElement('div');
+		tempBadge.innerHTML = currentBadge;
+
+		// then - replace all text with paths since we can't ship fonts
+		let session = new Session(tempBadge.innerHTML, {
+			fonts: {
+				MikrofabrikenV3: [
+					{
+						source: 'MikrofabrikenV3.ttf'
+					}
+				],
+				'IndustryIncW00-Base': [
+					{
+						source: 'Industry Inc W00 Base.ttf'
+					}
+				]
+			}
+		});
+
+		session.replaceAll().then(() => {
+			// then - download the svg
+			console.log(session.svg);
+			var e = document.createElement('a');
+			e.href = 'data:attachment/text,' + encodeURI(session.svg.outerHTML);
+			e.target = '_blank';
+			e.download = `badge_${name}.svg`;
+			e.click();
+		});
+
+		// finally - remove the temporary copy
+		tempBadge.remove();
+	}
 </script>
 
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -282,13 +325,13 @@
 						<!-- konsol -->
 						<div class="basis-1/3 flex items-center py-1">
 							<input
-								id="console"
-								name="console"
+								id="terminal"
+								name="terminal"
 								type="checkbox"
 								class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-								bind:checked={console}
+								bind:checked={terminal}
 							/>
-							<label for="console" class="ml-2 block text-sm text-gray-900">Konsol</label>
+							<label for="terminal" class="ml-2 block text-sm text-gray-900">Konsol</label>
 						</div>
 
 						<!-- skrivare -->
@@ -317,7 +360,7 @@
 					</div>
 
 					<!-- preview -->
-					<div class="py-4">
+					<div class="py-4" bind:this={badge}>
 						<Badge
 							{name}
 							{cube}
@@ -338,7 +381,7 @@
 							{anvil}
 							{saw}
 							{code}
-							{console}
+							{terminal}
 							{printer}
 							{lightning}
 						/>
@@ -347,7 +390,7 @@
 					<!-- download -->
 					<div>
 						<button
-							type="submit"
+							on:click={download}
 							class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 						>
 							Ladda ner .svg av din namnbricka!
