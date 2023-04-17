@@ -86,9 +86,7 @@
 		<div class="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
 			<form class="space-y-6" on:submit|preventDefault>
 				<div>
-					<label for="email" class="block text-sm font-medium leading-6 text-gray-900">
-						Namn
-					</label>
+					<label for="name" class="block text-sm font-medium leading-6 text-gray-900"> Namn </label>
 					<div class="mt-2">
 						<input
 							id="name"
