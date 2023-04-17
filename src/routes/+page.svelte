@@ -30,7 +30,7 @@
 	import Session from 'svg-text-to-path/entries/browser-opentypejs.js';
 
 	// super convuluted way to download the svg
-	function download() {
+	const download = async () => {
 		// first - create a new temporary copy of svg element
 		let currentBadge = badge.innerHTML;
 		let tempBadge = document.createElement('div');
@@ -54,17 +54,19 @@
 
 		session.replaceAll().then(() => {
 			// then - download the svg
-			console.log(session.svg);
-			var e = document.createElement('a');
-			e.href = 'data:attachment/text,' + encodeURI(session.svg.outerHTML);
-			e.target = '_blank';
-			e.download = `badge_${name}.svg`;
-			e.click();
-		});
+			let svgData = new XMLSerializer().serializeToString(session.svg);
+			let blob = new Blob([svgData], { type: 'image/svg+xml' });
+			let url = URL.createObjectURL(blob);
+			let a = document.createElement('a');
+			a.href = url;
+			a.download = `badge_${name}.svg`;
+			a.click();
+			a.remove();
 
-		// finally - remove the temporary copy
-		tempBadge.remove();
-	}
+			// finally - remove the temporary copy
+			tempBadge.remove();
+		});
+	};
 </script>
 
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
