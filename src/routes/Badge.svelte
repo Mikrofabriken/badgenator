@@ -1,22 +1,56 @@
 <script lang="ts">
 	export let name = '';
-	export let additiveManufacturing = false;
-	export let coffee = false;
+	export let cube = false;
+	export let note = false;
 	export let pencil = false;
 	export let motorcycle = false;
+	export let beer = false;
+	export let diode = false;
+	export let car = false;
+	export let resistor = false;
+	export let spades = false;
+	export let coffee = false;
+	export let laser = false;
+	export let micrometer = false;
+	export let thread = false;
+	export let brush = false;
+	export let dice = false;
+	export let anvil = false;
+	export let saw = false;
+	export let code = false;
+	export let console = false;
+	export let printer = false;
+	export let lightning = false;
 
 	const updateBadgeIconsText = (
-		additiveManufacturing: boolean,
-		coffee: boolean,
+		cube: boolean,
+		note: boolean,
 		pencil: boolean,
-		motorcycle: boolean
+		motorcycle: boolean,
+		beer: boolean,
+		diode: boolean,
+		car: boolean,
+		resistor: boolean,
+		spades: boolean,
+		coffee: boolean,
+		laser: boolean,
+		micrometer: boolean,
+		thread: boolean,
+		brush: boolean,
+		dice: boolean,
+		anvil: boolean,
+		saw: boolean,
+		code: boolean,
+		console: boolean,
+		printer: boolean,
+		lightning: boolean
 	) => {
 		var badgeIconsText = '';
-		if (additiveManufacturing) {
+		if (cube) {
 			badgeIconsText += '3';
 		}
-		if (coffee) {
-			badgeIconsText += 'K';
+		if (note) {
+			badgeIconsText += 'A';
 		}
 		if (pencil) {
 			badgeIconsText += 'B';
@@ -24,11 +58,84 @@
 		if (motorcycle) {
 			badgeIconsText += 'C';
 		}
+		if (beer) {
+			badgeIconsText += 'D';
+		}
+		if (diode) {
+			badgeIconsText += 'E';
+		}
+		if (car) {
+			badgeIconsText += 'F';
+		}
+		if (resistor) {
+			badgeIconsText += 'G';
+		}
+		if (spades) {
+			badgeIconsText += 'J';
+		}
+		if (coffee) {
+			badgeIconsText += 'K';
+		}
+		if (laser) {
+			badgeIconsText += 'L';
+		}
+		if (micrometer) {
+			badgeIconsText += 'M';
+		}
+		if (thread) {
+			badgeIconsText += 'N';
+		}
+		if (brush) {
+			badgeIconsText += 'P';
+		}
+		if (dice) {
+			badgeIconsText += 'R';
+		}
+		if (anvil) {
+			badgeIconsText += 'S';
+		}
+		if (saw) {
+			badgeIconsText += 'T';
+		}
+		if (code) {
+			badgeIconsText += 'U';
+		}
+		if (console) {
+			badgeIconsText += 'V';
+		}
+		if (printer) {
+			badgeIconsText += 'W';
+		}
+		if (lightning) {
+			badgeIconsText += 'X';
+		}
+
 		return badgeIconsText;
 	};
 
-	// update badge icons based on additive_manufacturing
-	$: badge_icons = updateBadgeIconsText(additiveManufacturing, coffee, pencil, motorcycle);
+	$: badge_icons = updateBadgeIconsText(
+		cube,
+		note,
+		pencil,
+		motorcycle,
+		beer,
+		diode,
+		car,
+		resistor,
+		spades,
+		coffee,
+		laser,
+		micrometer,
+		thread,
+		brush,
+		dice,
+		anvil,
+		saw,
+		code,
+		console,
+		printer,
+		lightning
+	);
 </script>
 
 <svg
@@ -1824,8 +1931,20 @@
 		</g>
 	</g>
 	<rect x="67.27" y="26.57" class="st1" width="159.34" height="21.7" />
-	<text id="badge_name" transform="matrix(1 0 0 1 115.9001 43.4193)" class="st2 st3">{name}</text>
-	<text id="badge_icons" transform="matrix(1 0 0 1 68.4595 18.3403)" class="st4 st5 st6"
-		>{badge_icons}</text
+	<text
+		id="badge_name"
+		text-anchor="middle"
+		transform="matrix(1 0 0 1 143.9001 43.4193)"
+		class="st2 st3"
 	>
+		{name}
+	</text>
+	<text
+		id="badge_icons"
+		letter-spacing="4"
+		transform="matrix(1 0 0 1 68.4595 18.3403)"
+		class="st4 st5 st6"
+	>
+		{badge_icons}
+	</text>
 </svg>
