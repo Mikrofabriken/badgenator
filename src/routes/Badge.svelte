@@ -314,7 +314,6 @@
 			/>
 		</g>
 	</g>
-	<rect x="67.27" y="26.57" class="st1" width="159.34" height="21.7" />
 
 	<text
 		id="badge_name"
