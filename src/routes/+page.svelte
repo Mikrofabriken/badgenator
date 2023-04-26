@@ -27,6 +27,7 @@
 	let badge: HTMLElement;
 
 	// import svg-text-to-path package
+	// @ts-expect-error: there are no types for this package
 	import Session from 'svg-text-to-path/entries/browser-opentypejs.js';
 
 	// super convuluted way to download the svg
