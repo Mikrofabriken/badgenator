@@ -1,0 +1,22 @@
+[
+	{
+		"label": "CAD",
+		"icon": "3",
+		"selected": false
+	},
+	{
+		"label": "Musik",
+		"icon": "A",
+		"selected": false
+	},
+	{
+		"label": "Illustration",
+		"icon": "B",
+		"selected": false
+	},
+	{
+		"label": "MC",
+		"icon": "C",
+		"selected": false
+	}
+]

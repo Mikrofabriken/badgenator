@@ -1,141 +1,25 @@
 <script lang="ts">
-	export let name = '';
-	export let cube = false;
-	export let note = false;
-	export let pencil = false;
-	export let motorcycle = false;
-	export let beer = false;
-	export let diode = false;
-	export let car = false;
-	export let resistor = false;
-	export let spades = false;
-	export let coffee = false;
-	export let laser = false;
-	export let micrometer = false;
-	export let thread = false;
-	export let brush = false;
-	export let dice = false;
-	export let anvil = false;
-	export let saw = false;
-	export let code = false;
-	export let terminal = false;
-	export let printer = false;
-	export let lightning = false;
+	type MikrofabrikenSymbol = {
+		label: string;
+		icon: string;
+		selected: boolean;
+	};
 
-	const updateBadgeIconsText = (
-		cube: boolean,
-		note: boolean,
-		pencil: boolean,
-		motorcycle: boolean,
-		beer: boolean,
-		diode: boolean,
-		car: boolean,
-		resistor: boolean,
-		spades: boolean,
-		coffee: boolean,
-		laser: boolean,
-		micrometer: boolean,
-		thread: boolean,
-		brush: boolean,
-		dice: boolean,
-		anvil: boolean,
-		saw: boolean,
-		code: boolean,
-		terminal: boolean,
-		printer: boolean,
-		lightning: boolean
-	) => {
+	export let name = '';
+	export let symbols: MikrofabrikenSymbol[] = [];
+
+	const updateBadgeIconsText = (symbols: MikrofabrikenSymbol[]) => {
 		let badgeIconsText = '';
-		if (cube) {
-			badgeIconsText += '3';
-		}
-		if (note) {
-			badgeIconsText += 'A';
-		}
-		if (pencil) {
-			badgeIconsText += 'B';
-		}
-		if (motorcycle) {
-			badgeIconsText += 'C';
-		}
-		if (beer) {
-			badgeIconsText += 'D';
-		}
-		if (diode) {
-			badgeIconsText += 'E';
-		}
-		if (car) {
-			badgeIconsText += 'F';
-		}
-		if (resistor) {
-			badgeIconsText += 'G';
-		}
-		if (spades) {
-			badgeIconsText += 'J';
-		}
-		if (coffee) {
-			badgeIconsText += 'K';
-		}
-		if (laser) {
-			badgeIconsText += 'L';
-		}
-		if (micrometer) {
-			badgeIconsText += 'M';
-		}
-		if (thread) {
-			badgeIconsText += 'N';
-		}
-		if (brush) {
-			badgeIconsText += 'P';
-		}
-		if (dice) {
-			badgeIconsText += 'R';
-		}
-		if (anvil) {
-			badgeIconsText += 'S';
-		}
-		if (saw) {
-			badgeIconsText += 'T';
-		}
-		if (code) {
-			badgeIconsText += 'U';
-		}
-		if (terminal) {
-			badgeIconsText += 'V';
-		}
-		if (printer) {
-			badgeIconsText += 'W';
-		}
-		if (lightning) {
-			badgeIconsText += 'X';
-		}
+		symbols.forEach((symbol: MikrofabrikenSymbol) => {
+			if (symbol.selected) {
+				badgeIconsText += symbol.icon;
+			}
+		});
 
 		return badgeIconsText;
 	};
 
-	$: badge_icons = updateBadgeIconsText(
-		cube,
-		note,
-		pencil,
-		motorcycle,
-		beer,
-		diode,
-		car,
-		resistor,
-		spades,
-		coffee,
-		laser,
-		micrometer,
-		thread,
-		brush,
-		dice,
-		anvil,
-		saw,
-		code,
-		terminal,
-		printer,
-		lightning
-	);
+	$: badge_icons = updateBadgeIconsText(symbols);
 </script>
 
 <svg
@@ -151,45 +35,32 @@
 >
 	<style type="text/css">
 		@font-face {
-			font-family: MikrofabrikenV3;
-			src: url('MikrofabrikenV3.ttf');
+			font-family: Mikrofabriken;
+			src: url('Mikrofabriken.ttf');
 		}
 
 		@font-face {
-			font-family: IndustryIncW00-Base;
-			src: url('Industry Inc W00 Base.ttf');
+			font-family: IndustryInc;
+			src: url('IndustryInc.ttf');
 		}
 
-		.st0 {
+		.yttre {
 			fill: #d1d3d4;
 		}
-		.st1 {
-			fill: none;
-		}
 
-		.st2 {
-			font-family: 'IndustryIncW00-Base';
-		}
-
-		.st3 {
+		.badge_name {
+			font-family: 'IndustryInc';
 			font-size: 23.4px;
 		}
 
-		.st4 {
-			font-family: 'MikrofabrikenV3';
-		}
-
-		.st5 {
+		.badge_icons {
+			font-family: 'Mikrofabriken';
 			font-size: 16.9848px;
-		}
-
-		.st6 {
-			letter-spacing: 2;
 		}
 	</style>
 	<g id="YTTRE">
 		<path
-			class="st0"
+			class="yttre"
 			d="M191.34,0H35.43C15.86,0,0,15.86,0,35.43v0C0,55,15.86,70.87,35.43,70.87h155.91
 		c19.57,0,35.43-15.86,35.43-35.43v0C226.77,15.86,210.91,0,191.34,0z"
 		/>
@@ -319,7 +190,7 @@
 		id="badge_name"
 		text-anchor="middle"
 		transform="matrix(1 0 0 1 143.9001 43.4193)"
-		class="st2 st3"
+		class="badge_name"
 	>
 		{name}
 	</text>
@@ -328,7 +199,7 @@
 		id="badge_icons"
 		letter-spacing="4"
 		transform="matrix(1 0 0 1 68.4595 18.3403)"
-		class="st4 st5 st6"
+		class="badge_icons"
 	>
 		{badge_icons}
 	</text>
