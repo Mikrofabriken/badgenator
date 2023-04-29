@@ -15,10 +15,10 @@
 		<h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
 			Mikrofabriken Badgenator
 		</h2>
-		<p class="mt-6 text-sm text-gray-600">
+		<p class="mt-6 px-4 text-sm text-gray-600">
 			Skapa din egen namnbricka! Fyll i ditt namn och välj de symboler du vill ha på din bricka.
 		</p>
-		<p class="mt-2 text-sm text-gray-600">
+		<p class="mt-2 px-4 text-sm text-gray-600">
 			När du är nöjd så kan du klicka på knappen för att ladda ner .svg-filen och få brickan
 			tillverkad på Mikrofabriken!
 		</p>
