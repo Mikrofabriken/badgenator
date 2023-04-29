@@ -2,6 +2,8 @@
 
 Namebadge generator for members and visitors at [Mikrofabriken](https://www.mikrofabriken.se).
 
+Try it out at [badgenator.vercel.app](https://badgenator.vercel.app)!
+
 ## Usage
 
 1. Enter your name
