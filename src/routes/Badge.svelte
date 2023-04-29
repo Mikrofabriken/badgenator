@@ -7,8 +7,7 @@
 
 	export let name = '';
 	export let symbols: MikrofabrikenSymbol[] = [];
-
-	let badgeIconsText = '';
+	export let badgeIconsText = '';
 
 	function updateBadgeIconsText(symbols: MikrofabrikenSymbol[]) {
 		console.log(badgeIconsText);

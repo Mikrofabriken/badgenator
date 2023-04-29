@@ -25,23 +25,23 @@ function getReplaceTextWithPathSession(badgeDiv: HTMLDivElement): Session {
 	return session;
 }
 
-function downloadSVG(session: Session, name: string) {
+function downloadSVG(session: Session, name: string, badgeIconsText: string) {
 	session.replaceAll().then(() => {
 		const svgData = new XMLSerializer().serializeToString(session.svg);
 		const blob = new Blob([svgData], { type: 'image/svg+xml' });
 		const url = URL.createObjectURL(blob);
 		const a = document.createElement('a');
 		a.href = url;
-		a.download = `badge_${name}.svg`;
+		a.download = `badge_${name}_${badgeIconsText}.svg`;
 		a.click();
 		a.remove();
 		document.getElementById('temp')?.remove();
 	});
 }
 
-export function download(name: string) {
+export function download(name: string, badgeIconsText: string) {
 	const badgeSvg = getSVG();
 	const tempBadgeDiv = createCopy(badgeSvg);
 	const session = getReplaceTextWithPathSession(tempBadgeDiv);
-	downloadSVG(session, name);
+	downloadSVG(session, name, badgeIconsText);
 }

@@ -4,9 +4,10 @@
 	import { download } from './helpers';
 
 	var name = '';
+	var badgeIconsText = '';
 
 	function handleSubmit() {
-		download(name);
+		download(name, badgeIconsText);
 	}
 </script>
 
@@ -63,7 +64,7 @@
 					</div>
 
 					<div class="py-4">
-						<Badge {name} {symbols} />
+						<Badge {name} {symbols} bind:badgeIconsText />
 					</div>
 
 					<div>
