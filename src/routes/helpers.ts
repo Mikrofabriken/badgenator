@@ -35,6 +35,7 @@ function downloadSVG(session: Session, name: string) {
 		a.download = `badge_${name}.svg`;
 		a.click();
 		a.remove();
+    document.getElementById('temp')?.remove();
 	});
 }
 
@@ -43,5 +44,4 @@ export function download(name: string) {
 	const tempBadgeDiv = createCopy(badgeSvg);
 	const session = getReplaceTextWithPathSession(tempBadgeDiv);
 	downloadSVG(session, name);
-	document.getElementById('temp')?.remove();
 }
