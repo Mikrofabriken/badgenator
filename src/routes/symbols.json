@@ -18,5 +18,90 @@
 		"label": "MC",
 		"icon": "C",
 		"selected": false
+	},
+  {
+		"label": "Öl",
+		"icon": "D",
+		"selected": false
+	},
+  {
+		"label": "Finelektronik",
+		"icon": "E",
+		"selected": false
+	},
+  {
+		"label": "Bilar",
+		"icon": "F",
+		"selected": false
+	},
+  {
+		"label": "Svets",
+		"icon": "G",
+		"selected": false
+	},
+  {
+		"label": "3D-print",
+		"icon": "K",
+		"selected": false
+	},
+  {
+		"label": "Kaffe",
+		"icon": "K",
+		"selected": false
+	},
+  {
+		"label": "Laser",
+		"icon": "L",
+		"selected": false
+	},
+  {
+		"label": "Mikrometer",
+		"icon": "M",
+		"selected": false
+	},
+  {
+		"label": "Textil",
+		"icon": "N",
+		"selected": false
+	},
+  {
+		"label": "Måleri",
+		"icon": "P",
+		"selected": false
+	},
+  {
+		"label": "Random",
+		"icon": "R",
+		"selected": false
+	},
+  {
+		"label": "Smide",
+		"icon": "S",
+		"selected": false
+	},
+  {
+		"label": "Trä",
+		"icon": "T",
+		"selected": false
+	},
+  {
+		"label": "Programmering",
+		"icon": "U",
+		"selected": false
+	},
+  {
+		"label": "System",
+		"icon": "V",
+		"selected": false
+	},
+  {
+		"label": "Tryck",
+		"icon": "W",
+		"selected": false
+	},
+  {
+		"label": "Elektronik",
+		"icon": "X",
+		"selected": false
 	}
 ]
