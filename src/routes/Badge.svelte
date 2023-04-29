@@ -8,18 +8,22 @@
 	export let name = '';
 	export let symbols: MikrofabrikenSymbol[] = [];
 
-	const updateBadgeIconsText = (symbols: MikrofabrikenSymbol[]) => {
-		let badgeIconsText = '';
+	let badgeIconsText = '';
+
+	function updateBadgeIconsText(symbols: MikrofabrikenSymbol[]) {
+		console.log(badgeIconsText);
 		symbols.forEach((symbol: MikrofabrikenSymbol) => {
-			if (symbol.selected) {
+			if (symbol.selected && !badgeIconsText.includes(symbol.icon)) {
 				badgeIconsText += symbol.icon;
 			}
+			if (!symbol.selected && badgeIconsText.includes(symbol.icon)) {
+				badgeIconsText = badgeIconsText.replace(symbol.icon, '');
+			}
 		});
+		console.log(badgeIconsText);
+	}
 
-		return badgeIconsText;
-	};
-
-	$: badge_icons = updateBadgeIconsText(symbols);
+	$: updateBadgeIconsText(symbols);
 </script>
 
 <svg
@@ -201,6 +205,6 @@
 		transform="matrix(1 0 0 1 68.4595 18.3403)"
 		class="badge_icons"
 	>
-		{badge_icons}
+		{badgeIconsText}
 	</text>
 </svg>

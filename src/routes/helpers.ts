@@ -35,7 +35,7 @@ function downloadSVG(session: Session, name: string) {
 		a.download = `badge_${name}.svg`;
 		a.click();
 		a.remove();
-    document.getElementById('temp')?.remove();
+		document.getElementById('temp')?.remove();
 	});
 }
 
