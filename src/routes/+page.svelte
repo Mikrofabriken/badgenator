@@ -63,7 +63,7 @@
 						{/each}
 					</div>
 
-					<div class="py-4">
+					<div class="flex justify-center py-4">
 						<Badge {name} {symbols} bind:badgeIconsText />
 					</div>
 

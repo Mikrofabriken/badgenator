@@ -32,6 +32,8 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	x="0px"
 	y="0px"
+	width="80mm"
+	height="25mm"
 	viewBox="0 0 226.77 70.87"
 	style="enable-background:new 0 0 226.77 70.87;"
 	xml:space="preserve"
